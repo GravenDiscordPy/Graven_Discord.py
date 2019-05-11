@@ -12,7 +12,7 @@ async def ping(ctx):
     
 client.run("<Token>")
 
-Ou
+#Ou
 
 import discord
 client = discord.Client()
@@ -23,6 +23,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+	if message.author == client.user:
+		return
 	if message.content == '!infos':
 		await message.channel.send('Infos : \nNom : ' + client.user.name + "\nID : " + str(client.user.id))
     
