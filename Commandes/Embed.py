@@ -28,3 +28,5 @@ async def ping(ctx):
 async def ping(ctx):
     e = discord.Embed(title="Pong", description="!!!!!!")
     await ctx.message.channel.send(embed=e)# On dit qu'on envoie une embed et que l'emebed est 'e' (la variable)
+    
+bot.run("<Token>")
