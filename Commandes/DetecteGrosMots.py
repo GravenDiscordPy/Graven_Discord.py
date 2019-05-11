@@ -15,3 +15,5 @@ async def on_message(message):
 		if mot in motsinterdits:
 			await message.channel.send("Warn !")
 			return
+
+client.run("<Token>")
