@@ -10,7 +10,7 @@ async def on_ready():
 async def on_message(message):
 	if message.content == '!deco':
 		await client.change_presence(status=discord.Status("offline"))
-  if message.content == '!co':
-    await client.change_presence(status=discord.Status("online"))
+ 	if message.content == '!co':
+		await client.change_presence(status=discord.Status("online"))
 
 client.run("<Token>")
