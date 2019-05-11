@@ -2,6 +2,8 @@ import discord
 
 client = discord.Client()
 
+prefix = ["!"]
+
 @client.event
 async def on_ready():
 	print("Bot connecté !")
