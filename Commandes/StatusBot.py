@@ -12,3 +12,5 @@ async def on_message(message):
 		await client.change_presence(status=discord.Status("offline"))
   if message.content == '!co':
     await client.change_presence(status=discord.Status("online"))
+
+client.run("<Token>")
