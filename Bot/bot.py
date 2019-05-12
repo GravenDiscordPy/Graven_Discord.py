@@ -1,8 +1,10 @@
 import discord
+from random import choice
 
 client = discord.Client()
 
 prefix = ["!"]
+listeimages=[""]
 
 @client.event
 async def on_ready():
@@ -23,7 +25,7 @@ async def on_message(message):
 
 		if comm == "purge":
 			if message.author.guild_permissions.manage_messages:
-				if len(args) > 1 and args[0].isdigit(): 
+				if len(args) > 0 and args[0].isdigit():
 					await message.channel.purge(limit=int(args[0])+1)
 				else:
 					await message.channel.send("Veuillez mettre un nombre !")
@@ -33,12 +35,16 @@ async def on_message(message):
 		if comm == "prefix":
 			print(dir(message.author.guild_permissions))
 			if message.author.guild_permissions.administrator:
-				if len(args) > 1:
+				if len(args) > 0:
 					prefix[0] = args[0]
 					await message.channel.send("Préfix changé pour : " + args[0])
 				else:
 					await message.channel.send("Veuillez mettre un préfix !")
 			else:
 				print("Vous n'avez pas les permissions !")
+
+		if comm == "hug":
+			if len(message.mentions) > 0:
+				await message.channel.send(content=message.author.mention + " fait un câlin à " + message.mentions[0].mention,file=discord.File(choice(listeimages)))
 
 client.run("<Token>")
